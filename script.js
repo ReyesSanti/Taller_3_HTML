@@ -27,3 +27,14 @@ function agregarFilaATabla(nombre, edad, sexo, correo, celular, cumpleaños) {
     `;
     tablaCuerpo.appendChild(fila);
 }
+const botonBorrarTabla = document.getElementById("borrarTabla");
+botonBorrarTabla.addEventListener("click", function() {
+    borrarTabla();
+});
+
+function borrarTabla() {
+    const tablaCuerpo = document.getElementById("tabla-cuerpo");
+    while (tablaCuerpo.firstChild) {
+        tablaCuerpo.removeChild(tablaCuerpo.firstChild);
+    }
+}
