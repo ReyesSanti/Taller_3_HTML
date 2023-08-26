@@ -13,9 +13,22 @@ form {
     margin-bottom: 20px;
 }
 
-label, input {
-    display: block;
+.input-group {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
+}
+
+label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+input, select {
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 button {
@@ -38,4 +51,8 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+}
+input, select {
+    
+    max-width: 200px; 
 }
