@@ -71,3 +71,44 @@ function mostrarMensaje(mensaje) {
         mensajeFlotante.style.display = "none";
     }, 3000); 
 }
+
+function validarYRegistrarVehiculo() {
+    const modelo = document.getElementById("modelo").value;
+    const cilindrado = document.getElementById("cilindrado").value;
+    const potencia = document.getElementById("potencia").value;
+    const peso = document.getElementById("peso").value;
+    const categoria = document.getElementById("categoria").value;
+    const version = document.getElementById("version").value;
+    const kilometraje = document.getElementById("kilometraje").value;
+    const precio = document.getElementById("precio").value;
+
+    if (
+        modelo === "" ||
+        cilindrado === "" ||
+        potencia === "" ||
+        peso === "" ||
+        categoria === "" ||
+        version === "" ||
+        kilometraje === "" ||
+        precio === ""
+    ) {
+        mostrarMensaje("Por favor, completa todos los campos.");
+    } else {
+        mostrarMensaje("¡Tu vehículo ha sido publicado!");
+        document.getElementById("formulario_vehiculo").reset();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const registrarVehiculoButton = document.getElementById("registrar_vehiculo");
+    registrarVehiculoButton.addEventListener("click", validarYRegistrarVehiculo);
+});
+
+
+
+
+
+
+
+
+
