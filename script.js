@@ -26,9 +26,27 @@ function agregarFilaATabla(nombre, edad, sexo, correo, celular, cumpleaños) {
         <td>${correo}</td>
         <td>${celular}</td>
         <td>${cumpleaños}</td>
+        <td><button class="eliminar-btn">Eliminar</button></td>
     `;
     tablaCuerpo.appendChild(fila);
 }
+tablaCuerpo.addEventListener("click", function(event) {
+    if (event.target.classList.contains("eliminar-btn")) {
+        const filaAEliminar = event.target.closest("tr");
+        tablaCuerpo.removeChild(filaAEliminar);
+        mostrarMensaje("Registro eliminado correctamente.");
+    }
+});
+function mostrarMensaje(mensaje) {
+    const mensajeFlotante = document.getElementById("mensaje-flotante");
+    mensajeFlotante.textContent = mensaje;
+    mensajeFlotante.style.display = "block";
+
+    setTimeout(() => {
+        mensajeFlotante.style.display = "none";
+    }, 3000); 
+}
+
 
 const botonBorrarTabla = document.getElementById("borrarTabla");
 botonBorrarTabla.addEventListener("click", function() {
