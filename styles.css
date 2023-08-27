@@ -9,6 +9,18 @@ body {
 
 }
 
+.image-container {
+    float: left;
+    margin-left: 20px;
+    width: 500px;
+}
+
+.car-image {
+    max-width: 100%;
+    height: auto;
+}
+
+
 h1 {
     margin-bottom: 20px;
 }
