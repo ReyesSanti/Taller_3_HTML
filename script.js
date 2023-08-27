@@ -1,5 +1,7 @@
 const formulario = document.getElementById("formulario");
 const tablaCuerpo = document.getElementById("tabla-cuerpo");
+const tablaVehiculosCuerpo = document.getElementById("tabla_vehiculos_cuerpo");
+
 
 formulario.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -30,6 +32,7 @@ function agregarFilaATabla(nombre, edad, sexo, correo, celular, cumpleaños) {
     `;
     tablaCuerpo.appendChild(fila);
 }
+
 tablaCuerpo.addEventListener("click", function(event) {
     if (event.target.classList.contains("eliminar-btn")) {
         const filaAEliminar = event.target.closest("tr");
@@ -72,43 +75,60 @@ function mostrarMensaje(mensaje) {
     }, 3000); 
 }
 
-function validarYRegistrarVehiculo() {
-    const modelo = document.getElementById("modelo").value;
-    const cilindrado = document.getElementById("cilindrado").value;
-    const potencia = document.getElementById("potencia").value;
-    const peso = document.getElementById("peso").value;
-    const categoria = document.getElementById("categoria").value;
-    const version = document.getElementById("version").value;
-    const kilometraje = document.getElementById("kilometraje").value;
-    const precio = document.getElementById("precio").value;
-
-    if (
-        modelo === "" ||
-        cilindrado === "" ||
-        potencia === "" ||
-        peso === "" ||
-        categoria === "" ||
-        version === "" ||
-        kilometraje === "" ||
-        precio === ""
-    ) {
-        mostrarMensaje("Por favor, completa todos los campos.");
-    } else {
-        mostrarMensaje("¡Tu vehículo ha sido publicado!");
-        document.getElementById("formulario_vehiculo").reset();
-    }
-}
 
 document.addEventListener("DOMContentLoaded", function () {
     const registrarVehiculoButton = document.getElementById("registrar_vehiculo");
-    registrarVehiculoButton.addEventListener("click", validarYRegistrarVehiculo);
+    
+    registrarVehiculoButton.addEventListener("click", function() {
+        const modelo = document.getElementById("modelo").value;
+        const cilindraje = document.getElementById("cilindrado").value;
+        const potencia = document.getElementById("potencia").value;
+        const peso = document.getElementById("peso").value;
+        const categoria = document.getElementById("categoria").value;
+        const version = document.getElementById("version").value;
+        const kilometraje = document.getElementById("kilometraje").value;
+        const precio = document.getElementById("precio").value;
+
+        if (
+            modelo === "" ||
+            cilindraje === "" ||
+            potencia === "" ||
+            peso === "" ||
+            categoria === "" ||
+            version === "" ||
+            kilometraje === "" ||
+            precio === ""
+        ) {
+            mostrarMensaje("Por favor, completa todos los campos.");
+        } else {
+            agregarFilaATablaVehiculos(modelo, cilindraje, potencia, peso, categoria, version, kilometraje, precio);
+            formulario_vehiculo.reset();
+            mostrarMensaje("¡Tu vehículo ha sido publicado!");
+        }
+    });
 });
 
 
+function agregarFilaATablaVehiculos(modelo, cilindraje, potencia, peso, categoria, version, kilometraje, precio) {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+        <td>${modelo}</td>
+        <td>${cilindraje}</td>
+        <td>${potencia}</td>
+        <td>${peso}</td>
+        <td>${categoria}</td>
+        <td>${version}</td>
+        <td>${kilometraje}</td>
+        <td>${precio}</td>
+        <td><button class="eliminar-btn">Eliminar</button></td>
+    `;
+    tabla_vehiculos_cuerpo.appendChild(fila);
+}
 
-
-
-
-
-
-
+tabla_vehiculos_cuerpo.addEventListener("click", function(event) {
+    if (event.target.classList.contains("eliminar-btn")) {
+        const filaAEliminar = event.target.closest("tr");
+        tabla_vehiculos_cuerpo.removeChild(filaAEliminar);
+        mostrarMensaje("Vehículo eliminado correctamente.");
+    }
+});
