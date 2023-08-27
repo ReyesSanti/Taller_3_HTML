@@ -78,56 +78,9 @@
         </tbody>
     </table>
     
-    <form action="/formulario_de_ventas">
-
-        <img src="" alt="">
-        <ul>
-
-            <li>
-                <label for="fmodelo">Modelo</label><br>
-                <input type="text" id="modelo" name="nombre_auto" />
-            </li>
-            <li>
-                <label for="fcilindrado">Cilindros</label><br>
-                <input type="number" id="cilindrado" name="cilindraje_auto" />
-            </li>
-            <li>
-                <label for="fpotencia">Potencia</label><br>
-                <input type="number" id="potencia" name="potencia_auto" />
-            </li>
-            <li>
-                <label for="fpeso">Peso</label><br>
-                <input type="number" id="peso" name="peso_auto" />
-            </li>
-            <li>
-                <label for="fcategoria">Categoria</label><br>
-                <input type="text" id="categoria" name="categoria_auto" />
-            </li>
-            <li>
-                <label for="fversion">Version</label><br>
-                <input type="text" id="modelo" name="version_modelo" />
-            </li>
-            <li>
-                <label for="fkilometraje">Kilometraje</label><br>
-                <input type="number" id="kilometraje" name="kilometraje_auto" />
-            </li>
-            <li>
-                <label for="fprecio">Precio</label><br>
-                <input type="number" id="precio" name="precio_auto" />
-            </li>
-
-            <li>
-                <div class="button">
-                    <button type="submit">Registrar</button>
-                </div>
-            </li>
-        </ul>
-    </form>
-
-    
-    
     <script src="script.js"></script>
 
+    <div class="form-container">
     <form action="/formulario_de_ventas">
 
         <img src="" alt="">
@@ -139,7 +92,7 @@
             </li>
             <li>
                 <label for="fcilindrado">Cilindros</label><br>
-                <input type="number" id="cilindrado" name="cilindraje_auto" />
+                <input type="number" id="cilindrado" name="cilindraje_auto" min="1" max="15"/>
             </li>
             <li>
                 <label for="fpotencia">Potencia</label><br>
@@ -147,7 +100,7 @@
             </li>
             <li>
                 <label for="fpeso">Peso</label><br>
-                <input type="number" id="peso" name="peso_auto" />
+                <input type="number" id="peso" name="peso_auto" min="10" max="400" />
             </li>
             <li>
                 <label for="fcategoria">Categoria</label><br>
@@ -159,11 +112,11 @@
             </li>
             <li>
                 <label for="fkilometraje">Kilometraje</label><br>
-                <input type="number" id="kilometraje" name="kilometraje_auto" />
+                <input type="number" id="kilometraje" name="kilometraje_auto" min="0" max="500000"/>
             </li>
             <li>
                 <label for="fprecio">Precio</label><br>
-                <input type="number" id="precio" name="precio_auto" />
+                <input type="number" id="precio" name="precio_auto" min="100" max="100000000"/>
             </li>
 
             <li>
@@ -173,6 +126,7 @@
             </li>
         </ul>
     </form>
+</div>
 
 </body>
 </html>
