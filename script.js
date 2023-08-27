@@ -13,6 +13,8 @@ formulario.addEventListener("submit", function(event) {
     
     agregarFilaATabla(nombre, edad, sexo, correo, celular, cumpleaños);
     formulario.reset();
+
+    mostrarMensaje("Los datos se agregaron correctamente.");
 });
 
 function agregarFilaATabla(nombre, edad, sexo, correo, celular, cumpleaños) {
@@ -27,6 +29,7 @@ function agregarFilaATabla(nombre, edad, sexo, correo, celular, cumpleaños) {
     `;
     tablaCuerpo.appendChild(fila);
 }
+
 const botonBorrarTabla = document.getElementById("borrarTabla");
 botonBorrarTabla.addEventListener("click", function() {
     borrarTabla();
@@ -37,4 +40,16 @@ function borrarTabla() {
     while (tablaCuerpo.firstChild) {
         tablaCuerpo.removeChild(tablaCuerpo.firstChild);
     }
+
+    mostrarMensaje("La tabla se ha borrado correctamente.");
+}
+
+function mostrarMensaje(mensaje) {
+    const mensajeFlotante = document.getElementById("mensaje-flotante");
+    mensajeFlotante.textContent = mensaje;
+    mensajeFlotante.style.display = "block";
+
+    setTimeout(() => {
+        mensajeFlotante.style.display = "none";
+    }, 3000); 
 }
