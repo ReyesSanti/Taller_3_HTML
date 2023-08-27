@@ -71,16 +71,3 @@ function mostrarMensaje(mensaje) {
         mensajeFlotante.style.display = "none";
     }, 3000); 
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const mensaje = "¡Tu vehículo ha sido publicado!";
-        alert(mensaje);
-
-        form.reset();
-    });
-});
